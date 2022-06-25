@@ -113,7 +113,7 @@ Array initialisation
 double[] a;
 
 # creation
-a = new double[n]
+a = new double[n];
 
 # initialization
 for (int i = 0; i < n; i++)
@@ -131,6 +131,53 @@ int[] a = {1, 1, 2, 3, 5, 8};
 
 2-dimensional arrays are created using an extra set of square brackets ([]). A value is accessed using a[i][j], which is an entry at row i, column j.
 ```
-double[][] a = new double[m][n]
+double[][] a = new double[m][n];
 ```
+
+**Static and Instance Methods**
+
+Method: a series of computation that is defined by a sequence of statements. They take arguments and compute a return value or causes a side effect.
+
+Static method signature: `public static return type, method name, arguments, body`
+```
+public static double sqrt(double c) {
+    if (c < 0) return Double.NaN;
+    double eps = 1e-15;
+    double t = c;
+    while (Math.abs(t - c/t) > eps * t)
+        t = (c/t + t) / 2.0;
+    return t;
+}
+```
+
+- Static methods do not require an instance of the class to be created before calling it. (eg. `Math.sqrt(10)`)
+- Instance methods do require an instance of the class to be created before calling it. (eg. `inst = new ClassName(); inst.funcName();`)
+
+**Recursion**
+- When a method calls itself to make code more efficient
+    - Recursion must have a base case -- include a conditional statement as the first statement in the program that has a return.
+    - Must address a subproblem that is smaller in some sense.
+    - Should not address subproblems that overlap.
+
+**APIs**
+- Application programming interfaces that list the library name and the signatures and short descriptions of each of the methods used.
+- Client: a program that calls a method in another library.
+- Implementation: Java code that implements the methods described in the API.
+
+```
+public class Math
+
+static double abs(double a)                 absolute value of a
+static double max(double a, double b)       maximum of a and b
+static double min(double a, double b)       minimum of a and b
+```
+
+**Strings**
+- A sequence of characters.
+- Concatenation: Joins two or more Strings into one String.
+- Conversion: `static int parseInt(String s)` converts String to int. `static String toString(int i)` converts int to String.
+
+**Input and Output**
+- Inputs are the arguments.
+- Outputs are the return values.
 
